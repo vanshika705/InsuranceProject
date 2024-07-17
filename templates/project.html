@@ -1,18 +1,20 @@
 <html>
     <head>
+        <link rel="stylesheet" href="C:\Users\hp\Desktop\Insurance Project\static\style.css" />
         <title>Insurance Prediction</title>
     </head>
     <body>
+        <div id="project_form">
         <h2>Get Insurance Premium Charges Prediction.</h2>
         <hr>
 
-        <form action="{{ url_for{" "} }}" method="post">
+        <form action="{{ url_for{"prediction"} }}" method="post">
             <label for="">Region:</label>
             <select name="region" id="">
-                <option value="">southeast</option>
-                <option value="">southwest</option>
-                <option value="">northeast</option>
-                <option value="">northwest</option>
+                <option value="1">southeast</option>
+                <option value="1">southwest</option>
+                <option value="1">northeast</option>
+                <option value="1">northwest</option>
             </select>
             <br><br>
 
@@ -27,7 +29,7 @@
             </select>   
             <br><br>
 
-            <label for="">Weight:</label>
+            <label for="">Health:</label>
             <select name="weight" id="">
                 <option value="0">underweight</option>
                 <option value="1">healthyweight</option>
@@ -37,7 +39,7 @@
             <br><br>
 
             <label for="">Gender:</label>
-            <select name="gender" id="">
+            <select name="sex" id="">
                 <option value="0">female</option>
                 <option value="1">male</option>
             </select>   
@@ -59,7 +61,7 @@
             <br><br>
             
             <button type="submit">Submit</button>
-        
+        </div>
         </form>
     </body>
 </html>

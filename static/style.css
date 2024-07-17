@@ -1,0 +1,22 @@
+body{
+    background-color:rgb(242, 236, 185);
+    
+}
+#heading{
+    text-align: center;
+}
+button{
+    background-color:black;
+    color:antiquewhite;
+    border-color:antiquewhite ;
+    border-width: 0.2rem;
+}
+p{
+    font-size: 1.2rem;
+}
+#home_footer{
+    background-color:rgb(245, 234, 130);
+}
+#project_form{
+    font-size: 1.2rem;
+}
