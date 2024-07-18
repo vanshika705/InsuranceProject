@@ -1,0 +1,10 @@
+numpy
+pandas
+scikit-learn
+joblib
+sqlite3
+flask
+Flask
+url_for
+render_template
+request

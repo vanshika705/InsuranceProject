@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" href="C:\Users\hp\Desktop\Insurance Project\static\style.css" />
+        <link rel="stylesheet" href="static\style.css" />
         <title>Insurance Prediction</title>
     </head>
     <body>
@@ -8,13 +8,13 @@
         <h2>Get Insurance Premium Charges Prediction.</h2>
         <hr>
 
-        <form action="{{ url_for{"prediction"} }}" method="post">
+        <form action="{{ url_for('predict') }}" method="post">
             <label for="">Region:</label>
-            <select name="region" id="">
-                <option value="1">southeast</option>
-                <option value="1">southwest</option>
-                <option value="1">northeast</option>
-                <option value="1">northwest</option>
+            <select name="region" id="">+
+                <option value="se">Southeast</option>
+                <option value="sw">Southwest</option>
+                <option value="ne">Northeast</option>
+                <option value="nw">Northwest</option>
             </select>
             <br><br>
 
@@ -31,33 +31,33 @@
 
             <label for="">Health:</label>
             <select name="weight" id="">
-                <option value="0">underweight</option>
-                <option value="1">healthyweight</option>
-                <option value="2">overweight</option>
-                <option value="3">Obese</option>
+                <option value="1">Underweight</option>
+                <option value="2">Healthyweight</option>
+                <option value="3">Overweight</option>
+                <option value="4">Obese</option>
             </select>   
             <br><br>
 
             <label for="">Gender:</label>
-            <select name="sex" id="">
-                <option value="0">female</option>
-                <option value="1">male</option>
+            <select name="gender" id="">
+                <option value="0">Female</option>
+                <option value="1">Male</option>
             </select>   
             <br><br>
 
             <label for="">Smoker:</label>
             <select name="smoker" id="">
-                <option value="1">yes</option>
+                <option value="1">Yes</option>
                 <option value="0">No</option>
             </select>   
             <br><br>
 
             <label for="">Age:</label>
-                <input placeholder="text"></input>
+                <input type="text" placeholder="Enter your age :" name="age"></input>
             <br><br>
 
             <label for="">BMI:</label>
-                <input placeholder="text"></input>
+                <input  type="text" placeholder="Enter BMI :" name="bmi" required></input>
             <br><br>
             
             <button type="submit">Submit</button>
