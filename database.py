@@ -8,9 +8,19 @@ query = """create table project
         weight integer, region varchar(5),
         prediction varchar(10))"""
 
-# cursor sql
+query_to_fetch = """ select * from project """
+
+# cursor sql is a temporary memory
 cur = connection.cursor()
-cur.execute(query)
-print("Your database and table is created!")
+# cur.execute(query)
+# print("Your database and table is created!")
+
+#  to fetch data form database 
+cur.execute(query_to_fetch)
+for record in cur.fetchall():
+        print(record)
+
 cur.close()
 connection.close()
+
+# Assignment smoker --> yes or no  , gender ---> female or male , health ---> 4 types 
