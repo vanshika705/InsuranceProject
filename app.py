@@ -2,9 +2,6 @@ from flask import Flask, render_template, request, url_for
 import sqlite3
 import joblib
 
-# connection = sqlite3.connect("insurance.db")
-# cur = connection.cursor()
-
 random_forest = joblib.load("./models/randomForest.lb")
 
 app = Flask(__name__)
@@ -26,11 +23,11 @@ def predict():
     if request.method == "POST":
         # to recieve the data 
         age = int(request.form["age"])
-        sex = int(request.form["gender"])
+        gender = (request.form["gender"])
         bmi = int(request.form["bmi"]) 
         children = int(request.form["children"] )
-        smoker = int(request.form["smoker"]) 
-        weight = int(request.form["weight"]) 
+        smoker = (request.form["smoker"]) 
+        health = (request.form["health"]) 
         region = (request.form["region"]) 
         
         region_southeast = 0
@@ -38,23 +35,47 @@ def predict():
         region_northwest = 0
         region_southwest = 0
         
-        if region == "se":
+        if region == "southeast":
             region_southeast = 1
-        elif region == "sw":
+        elif region == "southwest":
             region_southwest = 1
-        elif region == "ne":
+        elif region == "northeast":
             region_northeast = 1
-        elif region == "nw":
+        elif region == "northwest":
             region_northwest = 1
+           
             
-    unseen_data = [[age, sex, bmi, children, smoker, weight, region_northeast, region_northwest, region_southeast, region_southwest]]
+        if gender == "Female":
+            gender_type = 0
+        else:
+            gender_type = 1
+            
+        if smoker == "":
+            smoker_type = 1
+        else:
+            smoker_type = 0
+            
+        if health == "Underweight":
+            health_type = 1
+        elif health == "Healthyweight":
+            health_type = 2  
+        elif health == "Overweight":
+            health_type = 3  
+        elif health == "Obese":
+            health_type = 4      
+            
+            
+            
+            
+    unseen_data = [[age, gender_type, bmi, children, smoker_type, health_type, region_northeast, region_northwest, region_southeast, region_southwest]]
     
     prediction = str(random_forest.predict(unseen_data)[0])
     print(prediction)
+    
     connection = sqlite3.connect("insurance.db")
     cur = connection.cursor()
     
-    Data = (age, sex, bmi, children, region, smoker, weight, prediction)
+    Data = (age, gender, bmi, children, region, smoker, health, prediction)
     cur.execute(data_insert_query, Data)
     print("Your data is inserted into database : ",Data)
     connection.commit()

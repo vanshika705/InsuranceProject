@@ -14,9 +14,20 @@ button{
 p{
     font-size: 1.2rem;
 }
-/* #home_footer{
-    background-color:rgb(245, 234, 130);
-} */
 #project_form{
     font-size: 1.2rem;
+}
+form{
+    box-shadow: 4px 4px 10px rgba(148, 143, 99, 1);
+    width: 370px;
+    height: 390px;
+    padding-left: 13px;
+    padding-top: 15px;
+   
+}
+.container{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 90px;
 }
