@@ -50,7 +50,7 @@ def predict():
         else:
             gender_type = 1
             
-        if smoker == "":
+        if smoker == "Yes":
             smoker_type = 1
         else:
             smoker_type = 0
@@ -81,6 +81,7 @@ def predict():
     connection.commit()
     cur.close()
     connection.close()
+    
     
     return render_template("final.html", output = prediction)
     
